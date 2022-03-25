@@ -44,11 +44,11 @@ app.post('/', function (req, res) {
         email: email
     }, function(err, foundMember){
         // console.log(foundMember)
-        if(foundMember.email === email){
-            res.render('success')
-        }else {
-            res.render('success')
-        }
+        // if(foundMember.email === email){
+        //     res.render('success')
+        // }else {
+        //     res.render('success')
+        // }
     })
     // setTimeout(function () {
     //     res.redirect('/');
