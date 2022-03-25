@@ -45,9 +45,10 @@ app.post('/', function (req, res) {
     Member.find({
         email: email
     }, function (err, foundMember) {
-        setTimeout(function () {
-            res.redirect('/');
-        }, 2000)
+        // setTimeout(function () {
+        //     res.redirect('/');
+        // }, 2000)
+        res.render('success');
         // if(foundMember.email === email){
         //     res.render('success')
         // }else {
