@@ -10,8 +10,10 @@ app.use(bodyParser.urlencoded({
 }))
 app.use(express.static('public'))
 
-mongoose.connect('mongodb+srv://admin-abdulqadir:todolist123@todolist.ipnkg.mongodb.net/newsletterDB', 
-{ useNewUrlParser: true, useUnifiedTopology: true})
+mongoose.connect('mongodb+srv://admin-abdulqadir:todolist123@todolist.ipnkg.mongodb.net/newsletterDB', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+})
 mongoose.connection.once('open', function (err) {
     if (err) {
         console.log(err)
@@ -40,24 +42,24 @@ app.post('/', function (req, res) {
         email: email,
     }).save()
 
-    Member.findOne({
+    Member.find({
         email: email
-    }, function(err, foundMember){
-        // console.log(foundMember)
+    }, function (err, foundMember) {
+        setTimeout(function () {
+            res.redirect('/');
+        }, 2000)
         // if(foundMember.email === email){
         //     res.render('success')
         // }else {
         //     res.render('success')
         // }
     })
-    // setTimeout(function () {
-    //     res.redirect('/');
-    // }, 2000)
+
 })
 
 let port = process.env.PORT;
 if (port == null || port == "") {
-  port = 3000;
+    port = 3000;
 }
 
 app.listen(port, function (req, res) {
